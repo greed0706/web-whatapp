@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: whatsapp-chat-server
+    runtime: node
+    rootDir: server
+    plan: free
+    buildCommand: npm install
+    startCommand: node src/server.js
+    envVars:
+      - key: CORS_ORIGIN
+        sync: false
+      - key: NODE_VERSION
+        value: "20"
+    healthCheckPath: /health
